@@ -1,0 +1,54 @@
+TSQL Homework 02c Chapter 02c, T-SQL Query Fundamentals
+
+1. List the date/time types in T-SQL. 
+DATETIME
+SMALLDATETIME,
+DATE
+TIME
+DATETIME2
+DATETIMEOFFSET.
+
+2. How do you express a date/time literal in T-SQL? 
+It is a best practice to use character strings to express date and time values,
+String literal yymmdd
+
+3. What is the setting DATEFORMAT used for? 
+DATEFORMAT determines how SQL Server interprets the literals you enter when they are converted from a character-string type to a date and time type.
+
+4. Write a T-SQL snippet changing the date format to German. Read the documentation on how to do this. 
+SET LANGUAGE German
+
+5. What is the difference between CAST(), CONVERT(), and PARSE()? 
+The SQL CAST Function converts an expression from one data type to another.
+CONVERT function to explicitly convert the character-string literal to the requested data type and, in the third argument, specify a number representing the style you used.
+Parse() Returns the result of an expression, translated to the requested data type in SQL Server.
+
+6. What function returns the current date? This is very useful in a table that maintains a log of events, such as user logins. 
+SELECT  GETDATE()
+7. How do you add one day to the current date? Add one week? Add one month? Add one year? 
+DATEADD(<Unit of time>, <Units>, <Date>)
+-- to add 5 days to September 1, 2011 the function would be
+DATEADD(DAY, 5, '9/1/2011')
+
+-- to add 5 months from September 1, 2011 the function would be
+DATEADD(MONTH, 5, '9/1/2011')
+-- to add 5 months from September 1, 2011 the function would be
+DATEADD(YEAR, 5, '9/1/2011')
+
+8. Write a SQL snippet to return the number of years between your birth date and today’s date. 
+SELECT DATEDIFF(year, getdate(), '19900604');
+
+9. How do you check a string literal to see if it represents a valid date? 
+ISDATE(string)
+
+10. What does EOMONTH() do? Give an example of why this might be very useful. 
+The EOMONTH function accepts an input date and time value and returns the respective end-of-month date as a DATE typed value.
+Salaries are paid at the end of the month. So it can be useful to do so.
+
+11. Payments are due exactly 30 days from the date of the last function. Write a select query that calculates the date of the next payment. Pretend we want to update a column in a database that contains the date of the next payment. We will do this when we write UPDATE queries.
+UPDATE payments
+SET nextpayement = DATEADD(DAY, 30, pastpayement);
+
+ 12. Suppose your son or daughter wants to run a query every day that tells them the number of days until their 16th birthday. Write a select query that does this.
+SELECT DATEDIFF(day, getdate(), '20210604'); assuming 20210604 is the birthday date.
+

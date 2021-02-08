@@ -1,0 +1,73 @@
+TSQL Homework 01
+Chapter 1, T-SQL Query Fundamentals
+Readings
+Read Chapter 1 T-SQL Query Fundamentals.
+Homework Questions
+1.	How does the book describe the difference between imperative and declarative languages?
+
+Unlike many programming languages, which use an imperative programming paradigm, SQL uses a declarative one. That is, SQL requires you to specify what you want to get and not how to get it
+
+2.	List three categories of command statements in SQL.
+
+Data Definition Language (DDL), Data Manipulation Language (DML), and Data Control Language (DCL).
+
+3.	Give an informal definition of database as used in the expression \relational database management system." Give an informal definition of database as used in the expression \Human Resources database."
+
+RDBMS is the engine that deals with the querying of SQL statements, in this case database means the entirety of the database upon which the RDBMS is working on solving queries. A Human Resources database is specifically data from the Human Resources department, ordered in a relational model manner, full with tables, attributes etc… 
+
+4.	The book states that, the goal of the relational model is to enable consistent representation of data with minimal or no redundancy and without sacrificing completeness. . . " Briefly state your understanding of minimal or no redundancy and completeness. Why do you think that these values are important?
+
+Minimal or no redundancy means, storing data in a manner in which it is not necessary to store many copies of the same piece of data, instead because of relational logic it is stored in an efficient/intelligent manner for the RDBMS to retrieve it. Completeness means even thou we try to use the least amount of space to store data (avoiding redundancy) we should still have the complete set of data.
+
+These values are important, I think, because in a relational database system we pursue many different goals (like transactions), and for the efficient functionality of a RDBMS, data should be stored in an efficient manner as well. Otherwise, the RDBMS will have to work more than it should. Another reason can be that redundant data can bring forward logical errors.
+
+5.	What is the difference between two-valued logic, three-valued logic, and four-valued logic? How does SQL implement three-valued predicate logic?
+
+Two-value logic is either true or false
+Three-value logic is either true or false or missing 
+Four-valued logic is true or false or missing but applicable or missing but unapplicable
+
+The way SQL implement three valued predicate logic is with true or false or NULL. 
+
+6.	How does SQL enforce entity integrity? What is entity integrity?
+
+Entity integrity is the means by which we enforce that every tuple is unique.
+
+SQL enforces Entity integrity by using candidate keys, which again, enforce that every tuple in uniquely identifiable.
+
+7.	How does SQL enforce referential integrity? What is referential integrity?
+
+Referential integrity restricts the values in the referencing relation’s foreign-key attributes to the values that appear in the referenced relation’s candidate-key attributes.
+
+Foreign keys are the way SQL enforces referential integrity.
+
+8.	What is a relation as defined in the textbook? A one-word answer to this question is sufficient.
+
+A collection M of distinct objects m.
+
+A table
+
+relation (called a table in SQL).
+
+9.	Is this table in first normal form? Why or why not? If it is not, how would you change it?
+ 
+
+It is in first normal form because every row is uniquely identifiable by the key facID
+10.	Is this table in second normal form? Why or why not? If it is not, how would you change it?
+ 
+
+ 
+It is not In 2 normal form because some attributes reference owner ID and other attributes reference pet ID. Three separate tables must be derived from this one table in order to have every attribute fully functional dependent. 
+One table with primary key ownerID, ownerFirstName, ownerLastName.
+One table with primary key petID, petName
+One table with the petType (this is the primary key and only attribute of the table)
+
+11.	Is this table in third normal form? Why or why not? If it is not, how would you change it?
+ 
+This table is not in third normal form because some not key attributes could be designed not to be dependent on the ID but on another primary key instead. Splitting this table into two tables, one of ID primary key, FirstName and LastName (lets call it people table). The other is street Primary key, City, State, ZIP (lets call this one house table). Every house is unique and every person is unique, and maybe two people live together in the same house so we avoid redundancy by making two tables instead of writing the street, city, state and Zip code twice one for each person. 
+12.	List the components of a four-part object name.
+
+Instance-database-schema-object
+
+13.	What is the difference between declarative data integrity and procedural data integrity?
+Data integrity enforced as part of the model—namely, as part of the table definitions like primary key constraints, unique, foreign key, etc..—is considered declarative data integrity. Data integrity enforced with code—such as with stored procedures or triggers—is considered procedural data integrity.

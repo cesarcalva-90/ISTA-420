@@ -1,0 +1,53 @@
+TSQL Homework 03 Chapter 3, T-SQL Query Fundamentals
+
+Homework questions 
+
+1. In general, why would you even want to join two (or more) tables together? This is a good time to think about the nature of relational algebra.
+To be able to read the relation between tuples from different tables. If we were to query columns specified on different tables but had a related foreign key.
+
+ 2. Describe in your own words the output from an inner join. 
+The product is the join of attributes from two tables depending on the join ON condition, where this condition is true, usually a primary key related to a foreign key.
+
+3. Describe in your own words the output from an outer join. 
+The product is the join of attributes from two tables depending on the join ON condition, where this condition is not true. Left Join, Right Join Outer Join.
+
+4. Describe in your own words the output from an cross join. 
+The product is the join of attributes from two tables
+
+5. A convenient mnemonic for remembering the various joins is “Ohio.” Why is this true? 
+
+
+6. Give an example of a composite join.
+From dbo.Table1 as T1
+   Inner join dbo.Table2 as T2
+      On T1.col1 = T2.col1
+         AND T1.col2 = T2.col2
+
+
+
+
+7. What is the difference between the following two queries? The business problem is “How many orders do we have from each customer?”
+================first query=============== 
+SELECT C.custid, COUNT(*) AS numorders 
+FROM Sales.Customers AS C 
+LEFT OUTER JOIN Sales.Orders AS O 
+ON C.custid = O.custid
+ GROUP BY C.custid; 	
+================second query=============== 
+SELECT C.custid, COUNT(O.orderid) AS numorders 
+FROM Sales.Customers AS C 
+LEFT OUTER JOIN Sales.Orders AS O 
+ON C.custid = O.custid 
+GROUP BY C.custid;
+
+One counts the rows on the Customers table, the other counts the column orderid on the Orders table. The result should be the same.
+
+8. What might be one reason the following query does not return the column custID in this query?
+SELECT C.custid, C.companyname, O.orderid, O.orderdate 
+FROM Sales.Customers AS C 
+LEFT OUTER JOIN Sales.Orders AS O 
+ON C.custid = O.custid 
+WHERE O.orderdate >= ’20160101’;
+
+Because of the where clause?
+

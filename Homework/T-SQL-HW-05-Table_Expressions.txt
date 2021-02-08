@@ -1,0 +1,37 @@
+TSQL Homework 05 Chapter 5, T-SQL Query Fundamentals Readings Read chapter 5 in the T-SQL Query Fundamentals book. Discussion questions 
+
+1. What is a table expression? Can you give a technical definition of a table expression? 
+An expression that produces a temporary table
+
+2. In what SQL clause are derived tables (table valued subqueries) located? 
+Defined in the FROM clause of an outer query.
+
+3. Why can you refer to column aliases in an outer query that you defined in an inner table valued subquery? 
+Because the inner query is processed first and makes a derived table with the aliases. Then the outer query can refer to its columns.
+
+4. What SQL key word defines a common table expression?
+CTEs are defined by using a WITH statement
+
+5. When using common table expressions, can a subsequent derived table use a table alias declared in a preceding table expression? 
+Yes, because once used the first derived table by its outer query it vanishes from memory, and some other derived table can use its aliases again.
+
+6. Can a main query refer to a previously defined common table expression by multiple aliases? 
+Yes,
+
+7. In SQL, is a view a durable object? 
+Yes,
+
+8. In a view, what does WITH CHECK OPTION do? Why is this important? 
+The purpose of CHECK OPTION is to prevent modifications through the view that conflict with the view’s filter.
+
+9. In a view, what does SCHEMABINDING do? Why is this important? 
+it binds the schema of referenced objects and columns to the schema of the referencing object. It indicates that referenced objects cannot be dropped and that referenced columns cannot be dropped or altered
+
+10. What is a table valued function? 
+reusable table expressions that support input parameters.
+
+11. What does the APPLY operator do? 
+Like a Join . It validates one side of the table, creates a derived table result from it and then matches it row by row to the other table.
+
+12. What are the two forms of the APPLY operator? Give an example of each.
+CROSS APPLY and OUTER APPLY.

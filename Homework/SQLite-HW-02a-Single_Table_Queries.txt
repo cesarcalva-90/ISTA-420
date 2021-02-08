@@ -1,0 +1,32 @@
+TSQL Homework 02a Chapter 02a, T-SQL Query Fundamentals Readings Read chapter 2 of the textbook T-SQL Fundamentals, pages 27 through 49.
+1.	List the order of execution of a SQL query.
+1. FROM
+ 2. WHERE
+ 3. GROUP BY
+ 4. HAVING
+ 5. SELECT
+ 6. ORDER BY
+2. What does the from clause do? 
+Specify the names of the tables you want to query and table operators that operate on those tables. Get all the rows from that table.
+2.	What does the where clause do? 
+Specify a predicate or logical expression to filter the rows returned
+3.	What does the group by clause do? 
+arrange the rows returned
+4.	What does the having clause do?
+Filters by groups after the rows have been already filtered
+5.	What does the select clause do?
+specify the attributes (columns) you want to return
+6.	What does the distinct keyword do? 
+It filters the results of a query specifically to avoid duplicates
+7.	What does the order by clause do? 
+sort the rows in the output for presentation purposes.
+8.	What does the limit clause do? This is not in the book. 
+ LIMIT clause is used to set an upper limit on the number of tuples returned by SQL.
+9.	What does the top clause do? 
+limit the number or percentage of rows your query returns.
+
+
+10.	What do the offset . . . fetch . . . clauses do?
+With the OFFSET clause you indicate how many rows to skip, and with the FETCH clause you indicate how many rows to filter after the skipped rows.
+
+

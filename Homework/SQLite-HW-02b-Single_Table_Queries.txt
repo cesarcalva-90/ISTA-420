@@ -1,0 +1,48 @@
+TSQL Homework 02b Chapter 02b, 
+T-SQL Query Fundamentals Readings Read chapter 2 of the textbook T-SQL Fundamentals, pages 49 through 73. 
+Homework Questions 
+
+1. What is a data type? Why do we have data types? 
+A database data type refers to the format of data storage that can hold a distinct type or range of values.
+
+2. What is a collation? Name four elements of a collation. 
+A collation is a configuration setting that determines how the database engine should treat character data at the server, database, or column level.
+language support, sort order, case sensitivity, accent sensitivity
+3. How would you strip whitespace from a string? For example, suppose you had “ Dave ” but wanted only “Dave”.
+The LTRIM function is used to remove any white spaces from the beginning of a string.
+The RTRIM function is used to remove any white spaces from the end of a string.
+
+ 4. Suppose you wanted to make a list of every college and university that was called an Institute from the college table. Write the query. 
+Select * from college where name like “%institute%”;
+
+5. How would you find the number of the index of the first space in a string? For example, the index of the first space in “Barack Hussein Obama” would be 7. 
+With substring function
+Select substr(“Barack Hussein Obama”, 0, 7);
+
+6. How would you select just the first name in a list of the presidents. Each record looks like the: ”George Washington”, ”John Adams”, ”Thomas Jefferson”. First names can be an arbitrary length, from “Cal” to “Benjamin.” (e.g., Cal College, Benjamin Harrison) 
+Select name from presidents limit 1;
+
+7. What is the order of precedence for the logical operators? 
+The precedence of operators goes as follows: =, <, >, <=, >=, <>, !=, ~=, ^=, IS NULL, LIKE, BETWEEN, IN.
+
+8. What is the order of precedence for the math operators? 
+**	exponentiation
++, -	identity, negation
+*, /	multiplication, division
++, -, ||	addition, subtraction, concatenation
+comparison	
+NOT	logical negation
+AND	conjunction
+OR	inclusion
+
+
+9. What is the difference between a simple and a searched CASE expression?; 
+(String)The SQL simple CASE expression allows you to evaluate a list of conditions and returns one of the possible results.
+(Expression)The SQL CASE SEARCHED The database system evaluates the boolean expression for each WHEN clause in the order specified in the CASE expression.
+
+10. How would you turn a list of names like this: “LASTNAME, FIRSTNAME”, to a list like this: “FIRSTNAME LASTNAME”? 
+select substr('Loazano, Phil', instr('Loazano, Phil', ' ') + 1) || ' ' || subst('Lozano, Phil', 0, instr ('Loazano, Phil', ',')-1);
+11. How would you turn a list of names like this: “FIRSTNAME LASTNAME”, to a list like this: “LASTNAME, FIRSTNAME”? 
+select substr('Loazano, Phil', instr('Loazano, Phil', ' ') + 1) || ‘,’|| subst('Lozano, Phil', 0, instr ('Loazano, Phil', ',')-1);
+
+
